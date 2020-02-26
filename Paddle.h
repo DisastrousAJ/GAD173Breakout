@@ -14,3 +14,4 @@ public:
     sf::Vector2f pSize;
     sf::Color pColour;
 };
+

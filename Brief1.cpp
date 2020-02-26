@@ -8,8 +8,7 @@
 int windowWidth = 1000;
 int windowHeight = 600;
 int speed = 6;
-
-
+using namespace std;
 
 
 int main()
@@ -25,10 +24,26 @@ int main()
 }
 
 Brick brick;
-std::vector<Brick> Bricks(31, Brick(brick));
+vector<Brick> Bricks(31, Brick(brick));
+
+
 
 bool Game::Start()
 {
+    paddleSoundBuffer.loadFromFile("SFX/paddlebounce.flac");
+    wallSoundBuffer.loadFromFile("SFX/wallbounce.wav");
+    brickSoundBuffer.loadFromFile("SFX/brickbounce.wav");
+
+    font.loadFromFile("arial.ttf");
+    scoreText.setFont(font);
+    livesText.setFont(font);
+    scoreText.setPosition(0, windowHeight - 50);
+    livesText.setPosition(windowWidth - 100, windowHeight - 50);
+    scoreText.setCharacterSize(24);
+    livesText.setCharacterSize(24);
+    scoreText.setFillColor(sf::Color::White);
+    livesText.setFillColor(sf::Color::White);
+
     sf::VideoMode vMode(windowWidth, windowHeight);
     window.create(vMode, "Breakout!");
     window.setFramerateLimit(60);
@@ -39,17 +54,17 @@ bool Game::Start()
         Bricks[i].bShape.setSize(sf::Vector2f(100, 50));
         if (i <= 10)
         {
-            Bricks[i].bShape.setFillColor(sf::Color(rand()% 255 + 50, 0, 255, 255));
+            Bricks[i].bShape.setFillColor(sf::Color(rand()% 281 + 50, 73, 255, 255));
             Bricks[i].bShape.setPosition(100 * i, 0);
         }
         else if (i > 20)
         {
-            Bricks[i].bShape.setFillColor(sf::Color(rand() % 255 + 50, 255, 0, 255));
+            Bricks[i].bShape.setFillColor(sf::Color(rand() % 255 + 50, 255, 99, 255));
             Bricks[i].bShape.setPosition(100 * (i-21), 100);
         }
         else if (i > 10)
         {
-            Bricks[i].bShape.setFillColor(sf::Color(rand() % 255 + 50, 0, 255, 255));
+            Bricks[i].bShape.setFillColor(sf::Color(rand() % 299 + 50, 34, 223, 255));
             Bricks[i].bShape.setPosition(100 * (i-11), 50);
         }
     }
@@ -97,6 +112,8 @@ int Game::Update()
         if(top.getGlobalBounds().intersects(ball.ballShape.getGlobalBounds()))
         {
             ball.Bounce(0);
+            sound.setBuffer(wallSoundBuffer);
+            sound.play();
         }
         if (bottom.getGlobalBounds().intersects(ball.ballShape.getGlobalBounds()))
         {
@@ -107,13 +124,19 @@ int Game::Update()
                 return 1;
             }
         }
+        //wall colliders
         if (left.getGlobalBounds().intersects(ball.ballShape.getGlobalBounds()) || right.getGlobalBounds().intersects(ball.ballShape.getGlobalBounds()))
         {
             ball.Bounce(1);
+            sound.setBuffer(wallSoundBuffer);
+            sound.play();
         }
+        //paddle collides with the ball
         if (paddle.pShape.getGlobalBounds().intersects(ball.ballShape.getGlobalBounds()))
         {
             ball.Bounce(0);
+            sound.setBuffer(paddleSoundBuffer);
+            sound.play();
         }
 
         for (int i = 0; i < Bricks.size(); i++)
@@ -128,6 +151,8 @@ int Game::Update()
                 {
                     return 1;
                 }
+                sound.setBuffer(brickSoundBuffer);
+                sound.play();
             }
         }
 
@@ -146,6 +171,10 @@ int Game::Update()
         {
             window.draw(Bricks[i].bShape);
         }
+        scoreText.setString("Score: " + to_string(score));
+        livesText.setString("Lives: " + to_string(lives));
+        window.draw(scoreText);
+        window.draw(livesText);
         window.draw(paddle.pShape);
         window.draw(ball.ballShape);
         window.display();

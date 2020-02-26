@@ -1,15 +1,15 @@
 ﻿  Brief1.cpp
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(32,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(32,25): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(36,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(43,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(48,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(53,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(84,34): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(47,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(47,25): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(51,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(58,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(63,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(68,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(99,34): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(119,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\abalboni\Desktop\Brief1\Brief1.cpp(145,27): warning C4018: '<': signed/unsigned mismatch
-  Brief1.vcxproj -> C:\Users\abalboni\Desktop\Brief1\Debug\Brief1.exe
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(142,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\abalboni\Documents\GAD173Breakout\Brief1.cpp(170,27): warning C4018: '<': signed/unsigned mismatch
+  Brief1.vcxproj -> C:\Users\abalboni\Documents\GAD173Breakout\Debug\Brief1.exe

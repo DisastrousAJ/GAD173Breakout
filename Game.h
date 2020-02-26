@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 
 class Brick
@@ -16,6 +17,7 @@ class Ball
 public:
 	void Bounce(int dir)
 	{
+
 		switch (dir)
 		{
 		case 0:
@@ -53,5 +55,12 @@ private:
 	float windowHeight = 600;
 	int score = 0;
 	int lives = 3;
+	sf::Font font;
+	sf::Text scoreText;
+	sf::Text livesText;
+	sf::SoundBuffer paddleSoundBuffer;
+	sf::SoundBuffer wallSoundBuffer;
+	sf::SoundBuffer brickSoundBuffer;
+	sf::Sound sound;
 };
 
